@@ -7,10 +7,19 @@ def encoder(password):
     return encoded_password
 
 def decoder(password):
-    decoded_password = ""
-    for digit in password:
-        digit = int(digit)
-        digit -=3
+    emptystring = ""
+    for i in password:
+        i = int(i)
+        if i == 2:
+            emptystring = emptystring + str(9)
+        elif i == 1:
+            emptystring = emptystring + str(8)
+        elif i == 0:
+            emptystring = emptystring + str(7)
+        else:
+            i -= 3
+            emptystring = emptystring + str(i)
+    return emptystring
 
 def main():
     encoder_on = True
@@ -27,8 +36,9 @@ def main():
             encoded_password = encoder(password)
             print("Your password has been encoded and stored!\n")
         elif option == 2:
+            decoded_password = decoder(encoded_password)
             print(f"The encoded password is {encoded_password},"
-                  f" and the original password is {password}.\n")
+                  f" and the original password is {decoded_password}.\n")
         elif option == 3:
             encoder_on = False
 
