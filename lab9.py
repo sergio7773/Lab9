@@ -6,6 +6,11 @@ def encoder(password):
         encoded_password += str(digit)
     return encoded_password
 
+def decoder(password):
+    decoded_password = ""
+    for digit in password:
+        digit = int(digit)
+        digit -=3
 
 def main():
     encoder_on = True
