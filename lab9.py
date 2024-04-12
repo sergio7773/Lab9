@@ -8,9 +8,19 @@ def encoder(password):
 
 def decoder(password):
     decoded_password = ""
-    for digit in password:
-        digit = int(digit)
-        digit -=3
+    for i in password:
+        i = int(i)
+        if i == 9:
+            emptystring = emptystring + str(2)
+        elif i == 8:
+            emptystring = emptystring + str(1)
+        elif i == 7:
+            emptystring = emptystring + str(0)
+        else:
+            i += 3
+            emptystring = emptystring + str(i)
+    return emptystring
+
 
 def main():
     encoder_on = True
